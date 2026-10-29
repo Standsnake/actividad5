@@ -44,9 +44,10 @@ def xy(count):
     return (count % 8) * 50 - 200, (count // 8) * 50 - 200
 
 
-#funcion tap tap
+#funcion tap tap se agrego la base state
 def tap(x, y):
     """Update mark and hidden tiles based on tap."""
+    state['taps'] += 1
     spot = index(x, y)
     mark = state['mark']
 
