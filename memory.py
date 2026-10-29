@@ -14,6 +14,7 @@ from turtle import *
 
 from freegames import path
 
+
 car = path('car.gif')
 SIMBOLOS = [
     '★', '☆', '✦', '✧', '♠', '♣', '♥', '♦',
@@ -21,8 +22,9 @@ SIMBOLOS = [
     '♨', '☸', '☯', '✝', '☣', '☢', '▲', '▼',
     '◆', '◈', '◉', '◊', '◯', '▲', '▰', '▱'
 ]
-tiles = SIMBOLOS* 2
-state = {'mark': None}
+tiles = SIMBOLOS*2
+#se agrego un contador
+state = {'mark': None, 'taps': 0}
 hide = [True] * 64
 
 
@@ -49,8 +51,10 @@ def xy(count):
     return (count % 8) * 50 - 200, (count // 8) * 50 - 200
 
 
+#funcion tap tap se agrego la base state
 def tap(x, y):
     """Update mark and hidden tiles based on tap."""
+    state['taps'] += 1
     spot = index(x, y)
     mark = state['mark']
 
