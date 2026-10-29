@@ -80,12 +80,14 @@ def draw():
 
     mark = state['mark']
 
+    # modificacion de f"taps:" themes and such
+
     if mark is not None and hide[mark]:
         x, y = xy(mark)
         up()
         goto(x + 25, y+5)
         color('black')
-        write(tiles[mark], align="center", font=('Arial', 25, 'normal'))
+        write(f"Taps: {state['taps']}", align="center", font=('Arial', 25, 'normal'))
 
     update()
     ontimer(draw, 100)
